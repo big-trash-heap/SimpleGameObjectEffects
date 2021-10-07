@@ -7,6 +7,7 @@ function GameObjectProperty(_value) constructor {
 	// обязан быть публичным
 	self.value = _value;
 	
+	// вы должны гарантировать что stateRecall будет вызван после stateRemember
 	static stateRemember = undefined;
 	static stateRecall   = undefined;
 }
@@ -31,7 +32,6 @@ function GameObjectPropertyBox(_value) : GameObjectProperty(_value) constructor 
 	static stateRecall = function() {
 		
 		self.value   = self.__value;
-		//self.__value = undefined; // гарантировать это должны вы
 	}
 	
 }
