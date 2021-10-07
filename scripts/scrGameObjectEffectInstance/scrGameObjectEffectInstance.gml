@@ -8,5 +8,12 @@ function GameObjectEffectInstance(_effectForm) constructor {
 	self.form = _effectForm;
 	_effectForm.__create(self);
 	
+	#region __private
+	
+	self.__time  = _effectForm.maxTime;
+	self.__count = 1;
+	
+	#endregion
+	
 }
 
