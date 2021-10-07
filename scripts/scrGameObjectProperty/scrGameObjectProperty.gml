@@ -10,6 +10,18 @@ function GameObjectProperty(_value) constructor {
 	// вы должны гарантировать что stateRecall будет вызван после stateRemember
 	static stateRemember = undefined;
 	static stateRecall   = undefined;
+	static stateIsEmpty  = undefined;
+	
+	static controlSet = function(_value) {
+		
+		if (self.stateIsEmpty())  self.stateRemember();
+	}
+	
+	static controlReset = function() {
+		
+		if (!self.stateIsEmpty()) self.stateRecall();
+	}
+	
 }
 
 #endregion
@@ -32,6 +44,12 @@ function GameObjectPropertyBox(_value) : GameObjectProperty(_value) constructor 
 	static stateRecall = function() {
 		
 		self.value   = self.__value;
+		self.__value = undefined;
+	}
+	
+	static stateIsEmpty = function() {
+		
+		return is_undefined(self.__value);
 	}
 	
 }
@@ -40,23 +58,32 @@ function GameObjectPropertyArrayBox(_array) : GameObjectProperty(_array) constru
 	
 	#region __private
 	
-	self.__array = [];
+	self.__array = [true];
 	
 	#endregion
 	
 	static stateRemember = function() {
 		
-		var _size = array_length(self.__array);
-		array_resize(self.__array, _size);
-		array_copy(self.__array, 0, self.value, 0, _size);
+		self.__array[0] = false;
+		
+		var _size = array_length(self.value);
+		array_resize(self.__array, _size + 1);
+		array_copy(self.__array, 1, self.value, 0, _size);
 	}
 	
 	static stateRecall = function() {
-	
-		var _size = array_length(self.value);
+		
+		self.__array[0] = true;
+		
+		var _size = array_length(self.__array) - 1;
 		array_resize(self.value, _size);
-		array_copy(self.value, 0, self.__array, 0, _size);
-		array_resize(self.__array, 0);
+		array_copy(self.value, 0, self.__array, 1, _size);
+		array_resize(self.__array, 1);
+	}
+	
+	static stateIsEmpty = function() {
+		
+		return self.__array[0];
 	}
 	
 }
