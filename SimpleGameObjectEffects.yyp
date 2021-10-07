@@ -1,9 +1,10 @@
 {
   "resources": [
-    {"id":{"name":"scrGameObjectEffectBuilderForm","path":"scripts/scrGameObjectEffectBuilderForm/scrGameObjectEffectBuilderForm.yy",},"order":0,},
+    {"id":{"name":"scrGameObjectEffectForm","path":"scripts/scrGameObjectEffectForm/scrGameObjectEffectForm.yy",},"order":0,},
     {"id":{"name":"roomTest","path":"rooms/roomTest/roomTest.yy",},"order":1,},
     {"id":{"name":"scrGameObjectUtility","path":"scripts/scrGameObjectUtility/scrGameObjectUtility.yy",},"order":0,},
-    {"id":{"name":"scrGameObjectEffectBuilderInstance","path":"scripts/scrGameObjectEffectBuilderInstance/scrGameObjectEffectBuilderInstance.yy",},"order":1,},
+    {"id":{"name":"scrGameObjectEffectHandler","path":"scripts/scrGameObjectEffectHandler/scrGameObjectEffectHandler.yy",},"order":2,},
+    {"id":{"name":"scrGameObjectEffectInstance","path":"scripts/scrGameObjectEffectInstance/scrGameObjectEffectInstance.yy",},"order":1,},
     {"id":{"name":"scrGameObjectProperty","path":"scripts/scrGameObjectProperty/scrGameObjectProperty.yy",},"order":0,},
     {"id":{"name":"objTest","path":"objects/objTest/objTest.yy",},"order":0,},
   ],
