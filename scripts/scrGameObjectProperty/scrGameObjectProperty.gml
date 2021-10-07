@@ -12,9 +12,9 @@ function GameObjectProperty(_value) constructor {
 	static stateRecall   = undefined;
 	static stateIsEmpty  = undefined;
 	
-	static controlSet = function(_value) {
+	static controlRemember = function() {
 		
-		if (self.stateIsEmpty())  self.stateRemember();
+		if (self.stateIsEmpty()) self.stateRemember();
 	}
 	
 	static controlReset = function() {
@@ -52,6 +52,12 @@ function GameObjectPropertyBox(_value) : GameObjectProperty(_value) constructor 
 		return is_undefined(self.__value);
 	}
 	
+	static controlSet = function(_value) {
+		
+		self.controlRemember();
+		self.value = _value;
+	}
+	
 }
 
 function GameObjectPropertyArrayBox(_array) : GameObjectProperty(_array) constructor {
@@ -84,6 +90,12 @@ function GameObjectPropertyArrayBox(_array) : GameObjectProperty(_array) constru
 	static stateIsEmpty = function() {
 		
 		return self.__array[0];
+	}
+	
+	static controlSet = function(_index, _value) {
+		
+		self.controlRemember();
+		self.value[_index] = _value;
 	}
 	
 }
