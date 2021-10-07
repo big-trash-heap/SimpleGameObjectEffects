@@ -1,2 +1,7 @@
 
 
+function GameObjectEffectHandler() constructor {
+	
+	
+}
+
