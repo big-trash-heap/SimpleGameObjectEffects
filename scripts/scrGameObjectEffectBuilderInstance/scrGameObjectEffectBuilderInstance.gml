@@ -13,5 +13,7 @@ function GameObjectEffectBuilderInstance(_effectForm) constructor {
 		return self;
 	}
 	
+	_effectForm.__create(self);
+	
 }
 
