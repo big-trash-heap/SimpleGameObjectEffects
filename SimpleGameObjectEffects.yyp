@@ -1,0 +1,47 @@
+{
+  "resources": [
+    {"id":{"name":"roomTest","path":"rooms/roomTest/roomTest.yy",},"order":1,},
+    {"id":{"name":"scrGameObjectProperty","path":"scripts/scrGameObjectProperty/scrGameObjectProperty.yy",},"order":0,},
+    {"id":{"name":"objTest","path":"objects/objTest/objTest.yy",},"order":0,},
+  ],
+  "Options": [
+    {"name":"Amazon Fire","path":"options/amazonfire/options_amazonfire.yy",},
+    {"name":"Android","path":"options/android/options_android.yy",},
+    {"name":"iOS","path":"options/ios/options_ios.yy",},
+    {"name":"Linux","path":"options/linux/options_linux.yy",},
+    {"name":"macOS","path":"options/mac/options_mac.yy",},
+    {"name":"Main","path":"options/main/options_main.yy",},
+    {"name":"tvOS","path":"options/tvos/options_tvos.yy",},
+    {"name":"Windows","path":"options/windows/options_windows.yy",},
+    {"name":"operagx","path":"options/operagx/options_operagx.yy",},
+  ],
+  "isDnDProject": false,
+  "isEcma": false,
+  "tutorialPath": "",
+  "configs": {
+    "name": "Default",
+    "children": [],
+  },
+  "RoomOrderNodes": [
+    {"roomId":{"name":"roomTest","path":"rooms/roomTest/roomTest.yy",},},
+  ],
+  "Folders": [
+    {"folderPath":"folders/test.yy","order":1,"resourceVersion":"1.0","name":"test","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/GameObject.yy","order":2,"resourceVersion":"1.0","name":"GameObject","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/GameObject/property.yy","order":1,"resourceVersion":"1.0","name":"property","tags":[],"resourceType":"GMFolder",},
+  ],
+  "AudioGroups": [
+    {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
+  ],
+  "TextureGroups": [
+    {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
+  ],
+  "IncludedFiles": [],
+  "MetaData": {
+    "IDEVersion": "2.3.5.589",
+  },
+  "resourceVersion": "1.4",
+  "name": "SimpleGameObjectEffects",
+  "tags": [],
+  "resourceType": "GMProject",
+}
