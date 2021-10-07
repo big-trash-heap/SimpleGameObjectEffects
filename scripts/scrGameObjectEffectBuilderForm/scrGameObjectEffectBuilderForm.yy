@@ -6,7 +6,7 @@
     "path": "folders/GameObject/effect.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scrGameObjectEffectInstance",
+  "name": "scrGameObjectEffectBuilderForm",
   "tags": [],
   "resourceType": "GMScript",
 }

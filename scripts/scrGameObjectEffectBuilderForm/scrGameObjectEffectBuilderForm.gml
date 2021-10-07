@@ -1,7 +1,7 @@
 
 enum GAME_OBJECT_EFFECT_TYPE { ADD, UPD, STACK, COUNTER };
 
-function GameObjectEffectBuilder(_type, _priority, _maxTime, _create, _free, _tick) constructor {
+function GameObjectEffectBuilderForm(_type, _priority, _maxTime, _create, _free, _tick) constructor {
 	
 	/* вы должны гарантировать, что все эти поля никогда не будут изменены */
 	
@@ -13,9 +13,10 @@ function GameObjectEffectBuilder(_type, _priority, _maxTime, _create, _free, _ti
 	#region __private
 	
 	// функции
-	self.__create   = getFunction(_create);
-	self.__free     = getFunction(_free);
-	self.__tick     = getFunction(_tick);
+	self.__create = getFunction(_create);
+	self.__free   = getFunction(_free);
+	self.__tick   = getFunction(_tick);
 	
 	#endregion
 }
+
