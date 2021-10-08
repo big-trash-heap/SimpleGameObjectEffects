@@ -8,6 +8,8 @@ function GameObjectEffectHandler() constructor {
 	
 	self.__priorityArray = new PriorityArray();
 	
+	static __fdata = {};
+	
 	#endregion
 	
 	static clear = function() {
@@ -53,40 +55,44 @@ function GameObjectEffectHandler() constructor {
 	
 	static forAll = function(_f, _data) {
 		
-		self.__priorityArray.forAllBeg(_f, _data);
+		static _ffunc = method_get_index(function(_effect, _fdata, _index) {
+			
+			with (_effect) {
+			
+			if (_fdata[$ "f"](_effect, _fdata.data, _index)) {
+				
+				_effect.__free();
+				return true;
+			}
+			
+			}
+		});
+		
+		self.__fdata.f    = _f;
+		self.__fdata.data = _data;
+		
+		self.__priorityArray.forAllBeg(_ffunc, self.__fdata);
+		
+		self.__fdata.f    = undefined;
+		self.__fdata.data = undefined;
 	}
 	
 	static tick = function(_data) {
 		
-		self.__priorityArray.forAllBeg(
-		function(_effect, _arg) {
+		static _ffunc = method_get_index(function(_effect, _data, _index) {
 			
-			var _form = _effect.form;
+			with (_effect) {
 			
-			_effect.__time -= 1;
-			_form.__tick(_effect, _arg);
-			
-			if (_effect.__time == 0) {
+			if (_effect.__tick(_effect, _data, _index)) {
 				
-				if (_form.type == GAME_OBJECT_EFFECT_TYPE.COUNTER) {
-					
-					_effect.__count -= 1;
-					if (_effect.__count == 0) {
-						
-						_form.__free(_effect);
-						return true;
-					}
-					
-					_effect.__time = _form.maxTime;
-				}
-				else {
-					
-					_form.__free(_effect);
-					return true;
-				}
+				_effect.__free();
+				return true;
 			}
 			
-		}, _data);
+			}
+		});
+		
+		self.__priorityArray.forAllBeg(_ffunc, _data);
 	}
 	
 }
