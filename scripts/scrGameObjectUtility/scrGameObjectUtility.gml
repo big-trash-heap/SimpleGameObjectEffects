@@ -12,6 +12,14 @@ function functorMeth(_methOrFunc) {
 
 #endregion
 
+#region applicator
+
+function applicatorSome(_some, _f) {
+	if (_some != undefined) return _f(_some);
+}
+
+#endregion
+
 #region Class-PriorityArray
 
 function PriorityArray() constructor {

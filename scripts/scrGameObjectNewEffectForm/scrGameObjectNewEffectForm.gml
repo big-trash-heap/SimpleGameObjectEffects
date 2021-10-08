@@ -1,8 +1,6 @@
 #macro GAME_OBJECT_EFFECT_FORM_PREPROCESSOR_CHECK_UNIQUE true
 
-enum GAME_OBJECT_EFFECT_TYPE { ADD = 0, UPD = 1, STACK = 2, COUNTER = 3 };
-
-function gameObjectNewEffectForm(_name, _priority, _type, _maxTime, _create, _free, _tick) {
+function gameObjectNewEffectForm(_name, _priority, _create, _free, _tick, _updata) {
 	
 	static _map = __gameObjectFabEffectFormMapGet();
 	
@@ -36,16 +34,14 @@ function gameObjectNewEffectForm(_name, _priority, _type, _maxTime, _create, _fr
 	self.name     = _name;     /* unique */
 	self.priority = _priority; /* unique */
 	
-	self.type     = _type;
-	self.maxTime  = _maxTime;
-	
 	#region __private
 	
-	// функции                            /* arg0                */ /* space          */
-	//															 
-	self.__create = functorFunc(_create); /* new EffectInstance  */ /* void           */
-	self.__free   = functorFunc(_free);	  /* EffectInstance      */ /* void           */
-	self.__tick   = functorFunc(_tick);	  /* EffectInstance, arg */ /* EffectInstance */
+	// функции                                            /* arg0                */ /* space          */
+	//
+	self.__create = applicatorSome(_create, functorFunc); /* new EffectInstance  */ /* void           */
+	self.__free   = applicatorSome(_free,   functorFunc); /* EffectInstance      */ /* void           */
+	self.__tick   = applicatorSome(_tick,   functorFunc); /* EffectInstance, arg */ /* EffectInstance */
+	self.__updata = applicatorSome(_updata, functorFunc); /* EffectInstance      */ /* EffectInstance */
 	
 	#endregion
 	
