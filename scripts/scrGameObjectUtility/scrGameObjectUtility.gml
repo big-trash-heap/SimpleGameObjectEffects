@@ -16,6 +16,9 @@ function functorMeth(_methOrFunc) {
 
 function PriorityArray() constructor {
 	
+	/* ЭТО ГАВНО НАДО ПЕРЕПИСАТЬ */
+	// тут должно быть красно-чёрное дерево
+	
 	#region __private
 	
 	self.__size  = 0;
@@ -32,7 +35,7 @@ function PriorityArray() constructor {
 		
 		for (var _i = 0; _i < self.__size; ++_i) {
 			
-			if (_priority <= self.__array[_i * 2]) return (_i * 2);
+			if (_priority <= self.__array[_i * 2]) return _i;
 		}
 		
 		return -1;
@@ -42,7 +45,7 @@ function PriorityArray() constructor {
 		
 		for (var _i = self.__size - 1; _i >= 0; --_i) {
 			
-			if (_priority >= self.__array[_i * 2]) return (_i * 2);
+			if (_priority >= self.__array[_i * 2]) return _i;
 		}
 		
 		return -1;
@@ -54,7 +57,7 @@ function PriorityArray() constructor {
 		if (_ind == -1)
 			array_push(self.__array, _priority, _value);
 		else
-			array_insert(self.__array, _ind, _priority, _value);
+			array_insert(self.__array, _ind * 2, _priority, _value);
 		
 		++self.__size;
 	}
@@ -65,7 +68,7 @@ function PriorityArray() constructor {
 		if (_ind == -1)
 			array_insert(self.__array, 0, _priority, _value);
 		else
-			array_insert(self.__array, _ind + 2, _priority, _value);
+			array_insert(self.__array, _ind * 2 + 2, _priority, _value);
 		
 		++self.__size;
 	}
@@ -109,6 +112,12 @@ function PriorityArray() constructor {
 		self.__size = array_length(self.__array) div 2;
 	}
 	
+	static clr = function() {
+		
+		self.__size = 0;
+		array_resize(self.__array, 0);
+	}
+	
 	static toArray = function() {
 		
 		var _array = array_create(self.__size);
@@ -129,10 +138,3 @@ function PriorityArray() constructor {
 
 #endregion
 
-arr = new PriorityArray();
-arr.addValEnd(50, "Hello");
-arr.addValEnd(45, ">> ");
-arr.addValEnd(55, "World");
-arr.addValEnd(55, "!!!");
-
-show_message(arr);

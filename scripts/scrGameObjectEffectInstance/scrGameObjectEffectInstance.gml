@@ -1,33 +1,32 @@
-#macro GAME_OBJECT_EFFECT_INSTANCE_PREPROCESSOR_CHECK_EXISTS true
-
 
 #region __private
 
-function __GameObjectEffectInstance(_name) constructor {
-	
-	var _map = __gameObjectFabEffectFormMapGet();
-	
-	if (GAME_OBJECT_EFFECT_INSTANCE_PREPROCESSOR_CHECK_EXISTS) {
-	
-	if (ds_map_exists(_map, _name) == false) {
-		
-		show_error("GameObjectEffectInstance: не существует указанной формы", true);
-	}
-	
-	}
+function __GameObjectEffectInstance(_effectForm) constructor {
 	
 	/* вы должны гарантировать, что поле и данные внутри него
 	** не будут изменятся
 	*/
-	self.form = _map[? _name];
+	self.form = _effectForm;
 	self.form.__create(self);
 	
 	#region __private
 	
-	self.__time  = _effectForm.maxTime;
-	self.__count = 1;
+	self.__time = _effectForm.maxTime;
+	
+	if (self.form.type > GAME_OBJECT_EFFECT_TYPE.UPD) 
+		self.__count = 1;
 	
 	#endregion
+	
+	static getTime = function() {
+		
+		return self[$ "__time"];
+	}
+	
+	static getCount = function() {
+		
+		return self[$ "__count"];
+	}
 	
 }
 

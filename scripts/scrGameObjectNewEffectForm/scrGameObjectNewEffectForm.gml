@@ -1,6 +1,6 @@
 #macro GAME_OBJECT_EFFECT_FORM_PREPROCESSOR_CHECK_UNIQUE true
 
-enum GAME_OBJECT_EFFECT_TYPE { ADD, UPD, STACK, COUNTER };
+enum GAME_OBJECT_EFFECT_TYPE { ADD = 0, UPD = 1, STACK = 2, COUNTER = 3 };
 
 function gameObjectNewEffectForm(_name, _priority, _type, _maxTime, _create, _free, _tick) {
 	
