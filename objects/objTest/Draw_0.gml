@@ -11,8 +11,6 @@ self.hand.forAll(function(_effect, _data, _index) {
 	
 	draw_text(_index * 200, 0, @"
 	name: " + string(_effect.form.name) + @"
-	time: " + string(_effect.getCoef()) + @"
-	count: " + string(_effect.getCount()) + @"
 ");
 });
 

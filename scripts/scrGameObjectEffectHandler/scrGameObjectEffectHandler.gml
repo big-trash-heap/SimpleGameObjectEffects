@@ -83,7 +83,7 @@ function GameObjectEffectHandler() constructor {
 			
 			with (_effect) {
 			
-			if (_effect.__tick(_effect, _data, _index)) {
+			if (_effect.__tick(_data, _index)) {
 				
 				_effect.__free();
 				return true;
