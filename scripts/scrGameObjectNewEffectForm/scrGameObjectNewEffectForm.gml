@@ -1,7 +1,7 @@
 #macro GAME_OBJECT_EFFECT_FORM_PREPROCESSOR_CHECK_UNIQUE true
 
-/// @function gameObjectNewEffectForm(name, priority, constructorShell, f_tick, [f_updata], [f_create], [f_free]);
-function gameObjectNewEffectForm(_name, _priority, _constructorShell, _fTick, _fUpdata, _fCreate, _fFree) {
+/// @function gameObjectNewEffectForm(name, priority, constructorShell, argumentShell, f_tick, [f_updata], [f_create], [f_free]);
+function gameObjectNewEffectForm(_name, _priority, _constructorShell, _argumentShell, _fTick, _fUpdata, _fCreate, _fFree) {
 	
 	static _map = __gameObjectFabEffectFormMapGet();
 	
@@ -34,8 +34,9 @@ function gameObjectNewEffectForm(_name, _priority, _constructorShell, _fTick, _f
 	*/
 	
 	// свойства
-	self.name     = _name;     /* unique */
-	self.priority = _priority; /* unique */
+	self.name          = _name;             /* unique */
+	self.priority      = _priority;         /* unique */
+	self.argumentShell = _argumentShell;
 	
 	#region __private
 	

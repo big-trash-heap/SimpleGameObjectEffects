@@ -32,7 +32,31 @@ function GameObjectEffectShell(_effectForm) : __GameObjectEffectShell(_effectFor
 	
 }
 
-function GameObjectEffectShellTime(_effectForm) : __GameObjectEffectShell(_effectForm) constructor {
+function GameObjectEffectShellTime(_effectForm) : GameObjectEffectShell(_effectForm) constructor {
+	
+	#region __private
+	
+	self.__time = _effectForm.argumentShell;
+	
+	static __updata = function() {
+		
+		self.__time = self.form.argumentShell;
+		self.form[$ "__updata"]();
+	}
+	
+	static __tick = function(_argument) {
+		
+		if (self.__time > 0) {
+			
+			--self.__time;
+			self.form[$ "__tick"](_argument);
+			return false;
+		}
+		return true;
+	}
+	
+	#endregion
+	
 	
 	
 }
