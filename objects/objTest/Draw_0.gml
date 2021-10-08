@@ -12,9 +12,7 @@ self.hand.tick(self);
 
 self.hand.forAll(function(_effect, _data, _index) {
 	
-	draw_text(_index * 200, 0, @"
-	name: " + string(_effect.form.name) + @"
-");
+	draw_text(_index * 200, 0, _effect);
 });
 
 draw_text(0, 512, self.hp);

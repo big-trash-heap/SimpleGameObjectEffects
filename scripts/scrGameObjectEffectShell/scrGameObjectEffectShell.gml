@@ -57,7 +57,34 @@ function GameObjectEffectShellTime(_effectForm) : GameObjectEffectShell(_effectF
 	
 	#endregion
 	
+	static getTimeMax = function() {
+		
+		return self.form.argumentShell;
+	}
 	
+	static getTimeCur = function() {
+		
+		return self.__time;
+	}
+	
+	static getCoefLeft = function() {
+		
+		return (self.__time / self.form.argumentShell);
+	}
+	
+	static getCoefPass = function() {
+		
+		return (1 - self.__time / self.form.argumentShell);
+	}
+	
+	static toString = function() {
+		
+		return (
+			"name: " + string(self.form.name) + @"
+time: " + string(self.getTimeCur()) + @"
+coef-left: " + string(self.getCoefLeft()) + @"
+coef-pass: " + string(self.getCoefPass()));
+	}
 	
 }
 
@@ -81,6 +108,11 @@ function __GameObjectEffectShell(_effectForm) constructor {
 	static __updata = functorEm; /*         */
 	
 	#endregion
+	
+	static toString = function() {
+		
+		return ("name: " + string(self.form.name));
+	}
 	
 }
 

@@ -11,7 +11,7 @@ gameObjectNewEffectForm(
 function(_inst) {
 	
 	_inst.hp -= 1;
-});
+}, functorEm);
 
 self.hand = new GameObjectEffectHandler();
 self.hp = 100;

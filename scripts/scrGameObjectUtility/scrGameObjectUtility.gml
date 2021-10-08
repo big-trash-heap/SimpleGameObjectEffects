@@ -12,6 +12,8 @@ function functorMeth(_methOrFunc) {
 
 function functorEm() { return undefined; };
 
+function functorId(_value) { return _value; };
+
 #endregion
 
 #region applicator
