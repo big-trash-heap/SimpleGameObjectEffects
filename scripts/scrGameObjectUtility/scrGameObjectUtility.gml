@@ -89,7 +89,7 @@ function PriorityArray() constructor {
 		for (var _j, _i = 0; _i < self.__size; ++_i) {
 			
 			_j = _i * 2;
-			if (_f(self.__array[_j], _data)) {
+			if (_f(self.__array[_j], _data, _i)) {
 				
 				--_i;
 				--self.__size;
@@ -103,7 +103,7 @@ function PriorityArray() constructor {
 		for (var _j, _i = self.__size - 1; _i >= 0; --_i) {
 			
 			_j = _i * 2;
-			if (_f(self.__array[_j], _data)) {
+			if (_f(self.__array[_j], _data, _i)) {
 				
 				array_delete(self.__array, _j, 2);
 			}

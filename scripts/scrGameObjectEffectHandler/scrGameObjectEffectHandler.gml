@@ -52,7 +52,7 @@ function GameObjectEffectHandler() constructor {
 	
 	static forAll = function(_f, _data) {
 		
-		self.__priorityArray.forAllBeg(_f, _data);
+		self.__priorityArray.forAllBeg(_f, _data, _index);
 	}
 	
 	static tick = function(_data) {
