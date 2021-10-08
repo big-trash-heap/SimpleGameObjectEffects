@@ -1,6 +1,6 @@
 {
   "resources": [
-    {"id":{"name":"scrGameObjectEffectForm","path":"scripts/scrGameObjectEffectForm/scrGameObjectEffectForm.yy",},"order":0,},
+    {"id":{"name":"scrGameObjectFabEffectForm","path":"scripts/scrGameObjectFabEffectForm/scrGameObjectFabEffectForm.yy",},"order":0,},
     {"id":{"name":"roomTest","path":"rooms/roomTest/roomTest.yy",},"order":1,},
     {"id":{"name":"scrGameObjectUtility","path":"scripts/scrGameObjectUtility/scrGameObjectUtility.yy",},"order":0,},
     {"id":{"name":"scrGameObjectEffectHandler","path":"scripts/scrGameObjectEffectHandler/scrGameObjectEffectHandler.yy",},"order":2,},

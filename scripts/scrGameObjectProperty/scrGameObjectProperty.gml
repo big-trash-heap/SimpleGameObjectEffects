@@ -17,7 +17,7 @@ function GameObjectProperty(_value) constructor {
 		if (self.stateIsEmpty()) self.stateRemember();
 	}
 	
-	static controlReset = function() {
+	static controlRecall = function() {
 		
 		if (!self.stateIsEmpty()) self.stateRecall();
 	}
