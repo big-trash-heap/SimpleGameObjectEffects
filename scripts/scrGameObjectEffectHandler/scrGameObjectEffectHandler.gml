@@ -17,6 +17,14 @@ function GameObjectEffectHandler() constructor {
 	
 	static append = function(_nameEffectForm) {
 		
+		static _appendNew = function(_priorityArray, _form) {
+			
+			var _effect = new _form.__constructorShell(_form);
+			_effect.__create();
+			
+			_priorityArray.addValEnd(_form.priority, _effect);
+		}
+		
 		if (GAME_OBJECT_EFFECT_HANDLER_APPEND_PREPROCESSOR_CHECK_EXISTS) {
 		
 		if (ds_map_exists(self.__map, _nameEffectForm) == false) {
@@ -27,27 +35,20 @@ function GameObjectEffectHandler() constructor {
 		}
 		
 		var _form = self.__map[? _nameEffectForm];
-		if (_form.type == GAME_OBJECT_EFFECT_TYPE.ADD) {
+		if (_form.__updata == undefined) {
 			
-			self.__priorityArray.addValEnd(_form.priority, new __GameObjectEffectInstance(_form));
+			_appendNew(self.__priorityArray, _form);
 			exit;
 		}
 		
 		var _effectInd = self.__priorityArray.fndIndBeg(_form.priority);
 		if (_effectInd == -1) {
 			
-			self.__priorityArray.addValEnd(_form.priority, new __GameObjectEffectInstance(_form));
+			_appendNew(self.__priorityArray, _form);
 			exit;
 		}
 		
-		var _effect = self.__priorityArray.getVal(_effectInd);
-		
-		_effect.__time = _form.maxTime;
-		if (_form.type != GAME_OBJECT_EFFECT_TYPE.UPD) {
-			
-			_effect.__count += 1;
-		}
-		
+		self.__priorityArray.getVal(_effectInd).__updata();
 	}
 	
 	static forAll = function(_f, _data) {

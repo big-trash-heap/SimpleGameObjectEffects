@@ -16,8 +16,9 @@ function functorEm() { return undefined; };
 
 #region applicator
 
-function applicatorSome(_some, _f) {
+function applicatorSome(_some, _f, _default=undefined) {
 	if (_some != undefined) return _f(_some);
+	return _default;
 }
 
 #endregion
