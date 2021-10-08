@@ -4,6 +4,9 @@ enum GAME_OBJECT_EFFECT_TYPE { ADD, UPD, STACK, COUNTER };
 
 function gameObjectFabEffectForm(_name, _priority, _type, _maxTime, _create, _free, _tick) {
 	
+	var _object = {};
+	with (_object) {
+	
 	#region init
 	
 	static _map = __gameObjectFabEffectFormMapGet();
@@ -44,6 +47,8 @@ function gameObjectFabEffectForm(_name, _priority, _type, _maxTime, _create, _fr
 	self.__tick   = getFunction(_tick);
 	
 	#endregion
+	
+	}
 	
 }
 
