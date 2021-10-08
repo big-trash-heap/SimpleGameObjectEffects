@@ -20,8 +20,7 @@ function GameObjectEffectShell(_effectForm) : __GameObjectEffectShell(_effectFor
 	
 	static __updata = function() {
 		
-		var _f = self.form.__updata;
-		if (_f != undefined) _f();
+		self.form[$ "__updata"]();
 	}
 	
 	static __tick = function(_argument) {
@@ -30,6 +29,11 @@ function GameObjectEffectShell(_effectForm) : __GameObjectEffectShell(_effectFor
 	}
 	
 	#endregion
+	
+}
+
+function GameObjectEffectShellTime(_effectForm) : __GameObjectEffectShell(_effectForm) constructor {
+	
 	
 }
 
