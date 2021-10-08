@@ -28,6 +28,11 @@ function __GameObjectEffectInstance(_effectForm) constructor {
 		return self[$ "__count"];
 	}
 	
+	static getCoef = function() {
+		
+		return self[$ "__time"] / self.form.maxTime;
+	}
+	
 }
 
 #endregion

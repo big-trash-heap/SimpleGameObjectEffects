@@ -51,17 +51,18 @@ function gameObjectNewEffectForm(_name, _priority, _type, _maxTime, _create, _fr
 	
 	}
 	
+	return _name;
 }
 
 
 #region __private
 
-if (variable_global_exists("__gameObjecFabEffectFormMap")) exit;
-global.__gameObjecFabEffectFormMap = ds_map_create();
+if (variable_global_exists("scrGameObjectNewEffectFormMap")) exit;
+global.scrGameObjectNewEffectFormMap = ds_map_create();
 
 function __gameObjectFabEffectFormMapGet() {
-	static _init = scrGameObjectFabEffectForm();
-	return global.__gameObjecFabEffectFromMap;
+	static _init = scrGameObjectNewEffectForm();
+	return global.scrGameObjectNewEffectFormMap;
 }
 
 #endregion

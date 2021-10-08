@@ -52,7 +52,7 @@ function GameObjectEffectHandler() constructor {
 	
 	static forAll = function(_f, _data) {
 		
-		self.__priorityArray.forAllBeg(_f, _data, _index);
+		self.__priorityArray.forAllBeg(_f, _data);
 	}
 	
 	static tick = function(_data) {
@@ -69,12 +69,14 @@ function GameObjectEffectHandler() constructor {
 				
 				if (_form.type == GAME_OBJECT_EFFECT_TYPE.COUNTER) {
 					
-					_effect.__counter -= 1;
-					if (_effect.__counter == 0) {
+					_effect.__count -= 1;
+					if (_effect.__count == 0) {
 						
 						_form.__free(_effect);
 						return true;
 					}
+					
+					_effect.__time = _form.maxTime;
 				}
 				else {
 					
