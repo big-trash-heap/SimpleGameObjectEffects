@@ -7,7 +7,7 @@ function(_inst) {
 });
 
 gameObjectNewEffectForm(
-"damag", 20, GameObjectEffectShell, 
+"damag", 21, GameObjectEffectShell, 
 function(_inst) {
 	
 	_inst.hp -= 1;

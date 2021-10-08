@@ -34,11 +34,12 @@ function gameObjectNewEffectForm(_name, _priority, _constructorShell, _fTick, _f
 	*/
 	
 	// свойства
-	self.name          = _name;          /* unique */
-	self.priority      = _priority;      /* unique */
-	self.argumentShell = _argumentShell;
+	self.name     = _name;     /* unique */
+	self.priority = _priority; /* unique */
 	
 	#region __private
+	
+	self.__constructorShell = _constructorShell;
 	
 	self.__tick   = functorFunc(_fTick);
 	self.__updata = applicatorSome(_fUpdata, functorFunc);
