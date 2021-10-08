@@ -50,5 +50,41 @@ function GameObjectEffectHandler() constructor {
 		
 	}
 	
+	static forAll = function(_f, _data) {
+		
+		self.__priorityArray.forAllBeg(_f, _data);
+	}
+	
+	static tick = function(_data) {
+		
+		self.__priorityArray.forAllBeg(
+		function(_effect, _arg) {
+			
+			var _form = _effect.form;
+			
+			_effect.__time -= 1;
+			_form.__tick(_effect, _arg);
+			
+			if (_effect.__time == 0) {
+				
+				if (_form.type == GAME_OBJECT_EFFECT_TYPE.COUNTER) {
+					
+					_effect.__counter -= 1;
+					if (_effect.__counter == 0) {
+						
+						_form.__free(_effect);
+						return true;
+					}
+				}
+				else {
+					
+					_form.__free(_effect);
+					return true;
+				}
+			}
+			
+		}, _data);
+	}
+	
 }
 

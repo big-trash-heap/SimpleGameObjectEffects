@@ -41,11 +41,11 @@ function gameObjectNewEffectForm(_name, _priority, _type, _maxTime, _create, _fr
 	
 	#region __private
 	
-	// функции                            /* arg0               */ /* space          */
-	//
-	self.__create = functorFunc(_create); /* new EffectInstance */ /* void           */
-	self.__free   = functorFunc(_free);	  /* EffectInstance     */ /* void           */
-	self.__tick   = functorFunc(_tick);	  /* ins [GMLObject]    */ /* EffectInstance */
+	// функции                            /* arg0                */ /* space          */
+	//															 
+	self.__create = functorFunc(_create); /* new EffectInstance  */ /* void           */
+	self.__free   = functorFunc(_free);	  /* EffectInstance      */ /* void           */
+	self.__tick   = functorFunc(_tick);	  /* EffectInstance, arg */ /* EffectInstance */
 	
 	#endregion
 	

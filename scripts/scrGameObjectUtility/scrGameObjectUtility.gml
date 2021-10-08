@@ -84,12 +84,12 @@ function PriorityArray() constructor {
 		array_delete(self.__array, _index * 2, 2);
 	}
 	
-	static forAllBeg = function(_f) {
+	static forAllBeg = function(_f, _data) {
 		
 		for (var _j, _i = 0; _i < self.__size; ++_i) {
 			
 			_j = _i * 2;
-			if (_f(self.__array[_j])) {
+			if (_f(self.__array[_j], _data)) {
 				
 				--_i;
 				--self.__size;
@@ -98,12 +98,12 @@ function PriorityArray() constructor {
 		}
 	}
 	
-	static forAllEnd = function(_f) {
+	static forAllEnd = function(_f, _data) {
 		
 		for (var _j, _i = self.__size - 1; _i >= 0; --_i) {
 			
 			_j = _i * 2;
-			if (_f(self.__array[_j])) {
+			if (_f(self.__array[_j], _data)) {
 				
 				array_delete(self.__array, _j, 2);
 			}
