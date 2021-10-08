@@ -7,7 +7,7 @@ function(_inst) {
 });
 
 gameObjectNewEffectForm(
-"damag", 21, GameObjectEffectShell, 
+"damage", 21, GameObjectEffectShell, 
 function(_inst) {
 	
 	_inst.hp -= 1;

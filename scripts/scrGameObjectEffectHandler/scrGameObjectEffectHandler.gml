@@ -14,7 +14,13 @@ function GameObjectEffectHandler() constructor {
 	
 	static clear = function() {
 		
-		self.__priorityArray.clr();
+		static _ffunc = method_get_index(function(_effect, _data, _index) {
+			
+			_effect.__free();
+			return true;
+		});
+		
+		self.__priorityArray.forAllEnd(_ffunc);
 	}
 	
 	static append = function(_nameEffectForm) {
@@ -81,15 +87,12 @@ function GameObjectEffectHandler() constructor {
 		
 		static _ffunc = method_get_index(function(_effect, _data, _index) {
 			
-			with (_effect) {
-			
 			if (_effect.__tick(_data, _index)) {
 				
 				_effect.__free();
 				return true;
 			}
 			
-			}
 		});
 		
 		self.__priorityArray.forAllBeg(_ffunc, _data);
