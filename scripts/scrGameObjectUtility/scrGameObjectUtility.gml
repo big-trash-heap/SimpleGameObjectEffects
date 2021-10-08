@@ -1,4 +1,4 @@
-
+#macro _ undefined
 
 #region functors
 
@@ -9,6 +9,8 @@ function functorFunc(_methOrFunc) {
 function functorMeth(_methOrFunc) {
 	return method(undefined, _methOrFunc);
 }
+
+function functorEm() { return undefined; };
 
 #endregion
 

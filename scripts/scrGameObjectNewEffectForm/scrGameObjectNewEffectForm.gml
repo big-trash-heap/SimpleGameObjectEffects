@@ -1,6 +1,7 @@
 #macro GAME_OBJECT_EFFECT_FORM_PREPROCESSOR_CHECK_UNIQUE true
 
-function gameObjectNewEffectForm(_name, _priority, _create, _free, _tick, _updata) {
+/// @function gameObjectNewEffectForm(name, priority, constructor, argument);
+function gameObjectNewEffectForm(_name, _priority, _constructor, _argument) {
 	
 	static _map = __gameObjectFabEffectFormMapGet();
 	
@@ -28,7 +29,9 @@ function gameObjectNewEffectForm(_name, _priority, _create, _free, _tick, _updat
 	
 	#endregion
 	
-	/* вы должны гарантировать, что все эти поля никогда не будут изменены */
+	/* вы должны гарантировать, что все эти поля и данные лежищие в них,
+	** никогда не будут изменены
+	*/
 	
 	// свойства
 	self.name     = _name;     /* unique */
@@ -36,12 +39,8 @@ function gameObjectNewEffectForm(_name, _priority, _create, _free, _tick, _updat
 	
 	#region __private
 	
-	// функции                                            /* arg0                */ /* space          */
-	//
-	self.__create = applicatorSome(_create, functorFunc); /* new EffectInstance  */ /* void           */
-	self.__free   = applicatorSome(_free,   functorFunc); /* EffectInstance      */ /* void           */
-	self.__tick   = applicatorSome(_tick,   functorFunc); /* EffectInstance, arg */ /* EffectInstance */
-	self.__updata = applicatorSome(_updata, functorFunc); /* EffectInstance      */ /* EffectInstance */
+	self.__constructor = _constructor;
+	self.__argument    = _argument;
 	
 	#endregion
 	
