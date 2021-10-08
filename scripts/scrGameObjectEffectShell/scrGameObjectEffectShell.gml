@@ -62,9 +62,14 @@ function GameObjectEffectShellTime(_effectForm) : GameObjectEffectShell(_effectF
 		return self.form.argumentShell;
 	}
 	
-	static getTimeCur = function() {
+	static getTimeLeft = function() {
 		
 		return self.__time;
+	}
+	
+	static getTimePass = function() {
+		
+		return (self.form.argumentShell - self.__time);
 	}
 	
 	static getCoefLeft = function() {
@@ -81,7 +86,8 @@ function GameObjectEffectShellTime(_effectForm) : GameObjectEffectShell(_effectF
 		
 		return (
 			"name: " + string(self.form.name) + @"
-time: " + string(self.getTimeCur()) + @"
+time-left: " + string(self.getTimeLeft()) + @"
+time-pass: " + string(self.getTimePass()) + @"
 coef-left: " + string(self.getCoefLeft()) + @"
 coef-pass: " + string(self.getCoefPass()));
 	}
