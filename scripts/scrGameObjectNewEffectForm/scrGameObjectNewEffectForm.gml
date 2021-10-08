@@ -2,7 +2,7 @@
 
 enum GAME_OBJECT_EFFECT_TYPE { ADD, UPD, STACK, COUNTER };
 
-function gameObjectFabEffectForm(_name, _priority, _type, _maxTime, _create, _free, _tick) {
+function gameObjectNewEffectForm(_name, _priority, _type, _maxTime, _create, _free, _tick) {
 	
 	var _object = {};
 	with (_object) {
