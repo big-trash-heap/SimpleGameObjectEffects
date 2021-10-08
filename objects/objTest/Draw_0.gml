@@ -5,6 +5,9 @@ if keyboard_check_pressed(ord("1"))
 if keyboard_check_pressed(ord("2"))
 	self.hand.append("damage")
 
+if keyboard_check_pressed(ord("3"))
+	self.hand.clear()
+
 self.hand.tick(self);
 
 self.hand.forAll(function(_effect, _data, _index) {
