@@ -1,6 +1,9 @@
 #macro GAME_OBJECT_EFFECT_INSTANCE_PREPROCESSOR_CHECK_EXISTS true
 
-function GameObjectEffectInstance(_name) constructor {
+
+#region __private
+
+function __GameObjectEffectInstance(_name) constructor {
 	
 	var _map = __gameObjectFabEffectFormMapGet();
 	
@@ -27,4 +30,6 @@ function GameObjectEffectInstance(_name) constructor {
 	#endregion
 	
 }
+
+#endregion
 

@@ -4,12 +4,12 @@ enum GAME_OBJECT_EFFECT_TYPE { ADD, UPD, STACK, COUNTER };
 
 function gameObjectNewEffectForm(_name, _priority, _type, _maxTime, _create, _free, _tick) {
 	
+	static _map = __gameObjectFabEffectFormMapGet();
+	
 	var _object = {};
 	with (_object) {
 	
 	#region init
-	
-	static _map = __gameObjectFabEffectFormMapGet();
 	
 	if (GAME_OBJECT_EFFECT_FORM_PREPROCESSOR_CHECK_UNIQUE) {
 		
@@ -43,15 +43,14 @@ function gameObjectNewEffectForm(_name, _priority, _type, _maxTime, _create, _fr
 	
 	// функции                            /* arg0               */ /* space          */
 	//
-	self.__create = getFunction(_create); /* new EffectInstance */ /* void           */
-	self.__free   = getFunction(_free);	  /* EffectInstance     */ /* void           */
-	self.__tick   = getFunction(_tick);	  /* ins [GMLObject]    */ /* EffectInstance */
+	self.__create = functorFunc(_create); /* new EffectInstance */ /* void           */
+	self.__free   = functorFunc(_free);	  /* EffectInstance     */ /* void           */
+	self.__tick   = functorFunc(_tick);	  /* ins [GMLObject]    */ /* EffectInstance */
 	
 	#endregion
 	
 	}
 	
-	return _name;
 }
 
 
