@@ -43,8 +43,8 @@ function gameObjectNewEffectForm(_name, _priority, _constructorShell, _argumentS
 	
 	self.__constructorShell = _constructorShell;
 	
-	applicatorSelf("___tick",   applicatorSome(_fTick,   functorFunc));
-	applicatorSelf("___updata", applicatorSome(_fUpdata, functorFunc));
+	applicatorSelf("__tick",   applicatorSome(_fTick,   functorFunc));
+	applicatorSelf("__updata", applicatorSome(_fUpdata, functorFunc));
 	
 	applicatorSelf("__create",  applicatorSome(_fCreate, functorFunc));
 	applicatorSelf("__free",    applicatorSome(_fFree,   functorFunc));

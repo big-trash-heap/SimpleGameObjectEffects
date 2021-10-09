@@ -5,10 +5,9 @@ function GameObjectEffectHandler() constructor {
 	#region __private
 	
 	static __map = __gameObjectFabEffectFormMapGet();
+	static __fdata = {};
 	
 	self.__priorityArray = new PriorityArray();
-	
-	static __fdata = {};
 	
 	#endregion
 	
@@ -43,7 +42,7 @@ function GameObjectEffectHandler() constructor {
 		}
 		
 		var _form = self.__map[? _nameEffectForm];
-		if (_form.__updata == undefined) {
+		if (_form[$ "__updata"] == undefined) {
 			
 			_appendNew(self.__priorityArray, _form);
 			exit;
