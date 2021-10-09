@@ -59,12 +59,9 @@ function gameObjectNewEffectForm(_name, _priority, _constructorShell, _argumentS
 
 #region __private
 
-if (variable_global_exists("scrGameObjectNewEffectFormMap")) exit;
-global.scrGameObjectNewEffectFormMap = ds_map_create();
-
 function __gameObjectFabEffectFormMapGet() {
-	static _init = scrGameObjectNewEffectForm();
-	return global.scrGameObjectNewEffectFormMap;
+	static _map = ds_map_create();
+	return _map;
 }
 
 #endregion
