@@ -1,6 +1,6 @@
 #macro GAME_OBJECT_EFFECT_FORM_PREPROCESSOR_CHECK_UNIQUE true
 
-/// @function gameObjectNewEffectForm(name, priority, constructorShell, argumentShell, f_tick, [f_updata], [f_create], [f_free]);
+/// @function gameObjectNewEffectForm(name, priority, constructorShell, [argumentShell], [f_tick], [f_updata], [f_create], [f_free]);
 function gameObjectNewEffectForm(_name, _priority, _constructorShell, _argumentShell, _fTick, _fUpdata, _fCreate, _fFree) {
 	
 	static _map = __gameObjectFabEffectFormMapGet();
@@ -34,19 +34,20 @@ function gameObjectNewEffectForm(_name, _priority, _constructorShell, _argumentS
 	*/
 	
 	// свойства
-	self.name          = _name;             /* unique */
-	self.priority      = _priority;         /* unique */
-	self.argumentShell = _argumentShell;
+	self.name     = _name;     /* unique */
+	self.priority = _priority; /* unique */
+	
+	applicatorSelf("argumentShell", _argumentShell);
 	
 	#region __private
 	
 	self.__constructorShell = _constructorShell;
 	
-	self.__tick   = functorFunc(_fTick);
-	self.__updata = applicatorSome(_fUpdata, functorFunc);
+	applicatorSelf("___tick",   applicatorSome(_fTick,   functorFunc));
+	applicatorSelf("___updata", applicatorSome(_fUpdata, functorFunc));
 	
-	self.__create = applicatorSome(_fCreate, functorFunc);
-	self.__free   = applicatorSome(_fFree,   functorFunc);
+	applicatorSelf("__create",  applicatorSome(_fCreate, functorFunc));
+	applicatorSelf("__free",    applicatorSome(_fFree,   functorFunc));
 	
 	#endregion
 	

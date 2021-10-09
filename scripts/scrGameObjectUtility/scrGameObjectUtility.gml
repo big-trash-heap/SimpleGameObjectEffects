@@ -23,6 +23,10 @@ function applicatorSome(_some, _f, _default=undefined) {
 	return _default;
 }
 
+function applicatorSelf(_name, _value) {
+	if (_value != undefined) self[$ _name] = _value;
+}
+
 #endregion
 
 #region Class-PriorityArray
