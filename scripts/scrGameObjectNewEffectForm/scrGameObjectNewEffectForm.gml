@@ -3,7 +3,7 @@
 /// @function gameObjectNewEffectForm(name, priority, constructorShell, [argumentShell], [f_tick], [f_updata], [f_create], [f_free]);
 function gameObjectNewEffectForm(_name, _priority, _constructorShell, _argumentShell, _fTick, _fUpdata, _fCreate, _fFree) {
 	
-	static _map = __gameObjectFabEffectFormMapGet();
+	static _map = __gameObjectNewEffectFormMapGet();
 	
 	var _object = {};
 	with (_object) {
@@ -59,7 +59,7 @@ function gameObjectNewEffectForm(_name, _priority, _constructorShell, _argumentS
 
 #region __private
 
-function __gameObjectFabEffectFormMapGet() {
+function __gameObjectNewEffectFormMapGet() {
 	static _map = ds_map_create();
 	return _map;
 }

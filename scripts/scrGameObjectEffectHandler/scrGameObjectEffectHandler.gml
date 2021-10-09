@@ -4,7 +4,7 @@ function GameObjectEffectHandler() constructor {
 	
 	#region __private
 	
-	static __map = __gameObjectFabEffectFormMapGet();
+	static __map = __gameObjectNewEffectFormMapGet();
 	static __fdata = {};
 	
 	self.__priorityArray = new PriorityArray();

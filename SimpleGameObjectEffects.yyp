@@ -3,6 +3,7 @@
     {"id":{"name":"scrGameObjectNewEffectForm","path":"scripts/scrGameObjectNewEffectForm/scrGameObjectNewEffectForm.yy",},"order":0,},
     {"id":{"name":"roomTest","path":"rooms/roomTest/roomTest.yy",},"order":1,},
     {"id":{"name":"scrGameObjectUtility","path":"scripts/scrGameObjectUtility/scrGameObjectUtility.yy",},"order":0,},
+    {"id":{"name":"scrGameObjectMark","path":"scripts/scrGameObjectMark/scrGameObjectMark.yy",},"order":0,},
     {"id":{"name":"scrGameObjectEffectHandler","path":"scripts/scrGameObjectEffectHandler/scrGameObjectEffectHandler.yy",},"order":2,},
     {"id":{"name":"scrGameObjectEffectShell","path":"scripts/scrGameObjectEffectShell/scrGameObjectEffectShell.yy",},"order":1,},
     {"id":{"name":"scrGameObjectProperty","path":"scripts/scrGameObjectProperty/scrGameObjectProperty.yy",},"order":0,},
@@ -35,6 +36,7 @@
     {"folderPath":"folders/GameObject/property.yy","order":1,"resourceVersion":"1.0","name":"property","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/GameObject/effect.yy","order":2,"resourceVersion":"1.0","name":"effect","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/GameObject/utility.yy","order":3,"resourceVersion":"1.0","name":"utility","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/GameObject/mark.yy","order":4,"resourceVersion":"1.0","name":"mark","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

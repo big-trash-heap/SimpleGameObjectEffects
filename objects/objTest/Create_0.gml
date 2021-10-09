@@ -1,4 +1,5 @@
 
+
 gameObjectNewEffectForm(
 "regen", 20, GameObjectEffectShellTime, 10 * room_speed,
 function(_inst) {
@@ -15,3 +16,4 @@ function(_inst) {
 
 self.hand = new GameObjectEffectHandler();
 self.hp = 100;
+
