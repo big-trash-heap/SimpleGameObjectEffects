@@ -14,7 +14,7 @@ function GameObjectEffectShell(_effectForm) : __GameObjectEffectShell(_effectFor
 	
 	static __free = function() {
 		
-		var _f =self.form[$ "__free"];
+		var _f = self.form[$ "__free"];
 		if (_f != undefined) _f();
 	}
 	
