@@ -1,6 +1,6 @@
 #macro GAME_OBJECT_EFFECT_HANDLER_APPEND_PREPROCESSOR_CHECK_EXISTS true
 
-function GameObjectEffectHandler() constructor {
+function GameObjectEffectHandler(_bind) constructor {
 	
 	#region __private
 	
@@ -8,18 +8,19 @@ function GameObjectEffectHandler() constructor {
 	static __fdata = {};
 	
 	self.__priorityArray = new PriorityArray();
+	self.__bind = _bind;
 	
 	#endregion
 	
 	static clear = function() {
 		
-		static _ffunc = method_get_index(function(_effect, _data, _index) {
+		static _ffunc = method_get_index(function(_effect, _data) {
 			
-			_effect.__free();
+			_effect.__free(_data);
 			return true;
 		});
 		
-		self.__priorityArray.forAllEnd(_ffunc);
+		self.__priorityArray.forAllEnd(_ffunc, self.__bind);
 	}
 	
 	static append = function(_nameEffectForm) {
@@ -27,7 +28,7 @@ function GameObjectEffectHandler() constructor {
 		static _appendNew = function(_priorityArray, _form) {
 			
 			var _effect = new _form.__constructorShell(_form);
-			_effect.__create();
+			_effect.__create(self.__bind);
 			
 			_priorityArray.addValEnd(_form.priority, _effect);
 		}
@@ -55,46 +56,48 @@ function GameObjectEffectHandler() constructor {
 			exit;
 		}
 		
-		self.__priorityArray.getVal(_effectInd).__updata();
+		self.__priorityArray.getVal(_effectInd).__updata(self.__bind);
 	}
 	
+	// f -> with effect (with f.object : (effect, bind, data, index))
 	static forAll = function(_f, _data) {
 		
 		static _ffunc = method_get_index(function(_effect, _fdata, _index) {
 			
 			with (_effect) {
 			
-			if (_fdata[$ "f"](_effect, _fdata.data, _index)) {
-				
-				_effect.__free();
-				return true;
-			}
+			_index = _fdata[$ "f"](_effect, _fdata.this, _fdata.data, _index);
+			if (_index == 1) _effect.__free(_fdata.this);
+			
+			return _index;
 			
 			}
 		});
 		
 		self.__fdata.f    = _f;
 		self.__fdata.data = _data;
+		self.__fdata.this = self.__bind;
 		
 		self.__priorityArray.forAllBeg(_ffunc, self.__fdata);
 		
 		self.__fdata.f    = undefined;
 		self.__fdata.data = undefined;
+		self.__fdata.this = undefined;
 	}
 	
-	static tick = function(_data) {
+	static tick = function() {
 		
-		static _ffunc = method_get_index(function(_effect, _data, _index) {
+		static _ffunc = method_get_index(function(_effect, _data) {
 			
-			if (_effect.__tick(_data, _index)) {
+			if (_effect.__tick(_data)) {
 				
-				_effect.__free();
-				return true;
+				_effect.__free(_data);
+				return 1;
 			}
 			
 		});
 		
-		self.__priorityArray.forAllBeg(_ffunc, _data);
+		self.__priorityArray.forAllBeg(_ffunc, self.__bind);
 	}
 	
 }

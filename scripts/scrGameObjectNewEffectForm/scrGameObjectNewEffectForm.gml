@@ -1,5 +1,16 @@
 #macro GAME_OBJECT_EFFECT_FORM_PREPROCESSOR_CHECK_UNIQUE true
 
+/*
+	with (effect) {
+		f_tick(bind)
+		f_updata(bind)
+		f_create(bind)
+		f_free(bind)
+		
+		custom f::f (effect, bind, data, index)
+	}
+*/
+
 /// @function gameObjectNewEffectForm(name, priority, constructorShell, [argumentShell], [f_tick], [f_updata], [f_create], [f_free]);
 function gameObjectNewEffectForm(_name, _priority, _constructorShell, _argumentShell, _fTick, _fUpdata, _fCreate, _fFree) {
 	

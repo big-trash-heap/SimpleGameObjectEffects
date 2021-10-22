@@ -68,6 +68,26 @@ function PriorityArray() constructor {
 		return -1;
 	}
 	
+	static fndIndBegEq = function(_priority) {
+		
+		for (var _i = 0; _i < self.__size; ++_i) {
+			
+			if (_priority == self.__array[_i * 2]) return _i;
+		}
+		
+		return -1;
+	}
+	
+	static fndIndEndEq = function(_priority) {
+		
+		for (var _i = self.__size - 1; _i >= 0; --_i) {
+			
+			if (_priority == self.__array[_i * 2]) return _i;
+		}
+		
+		return -1;
+	}
+	
 	static addValBeg = function(_priority, _value) {
 		
 		var _ind = self.fndIndBeg(_priority);
@@ -103,10 +123,12 @@ function PriorityArray() constructor {
 	
 	static forAllBeg = function(_f, _data) {
 		
-		for (var _j, _i = 0; _i < self.__size; ++_i) {
+		for (var _v, _j, _i = 0; _i < self.__size; ++_i) {
 			
 			_j = _i * 2;
-			if (_f(self.__array[_j + 1], _data, _i)) {
+			var _v = _f(self.__array[_j + 1], _data, _i);
+			if (_v == -1) exit;
+			if (_v == 1) {
 				
 				--_i;
 				--self.__size;
@@ -117,10 +139,12 @@ function PriorityArray() constructor {
 	
 	static forAllEnd = function(_f, _data) {
 		
-		for (var _j, _i = self.__size - 1; _i >= 0; --_i) {
+		for (var _v, _j, _i = self.__size - 1; _i >= 0; --_i) {
 			
 			_j = _i * 2;
-			if (_f(self.__array[_j + 1], _data, _i)) {
+			var _v = _f(self.__array[_j + 1], _data, _i);
+			if (_v == -1) exit;
+			if (_v == 1) {
 				
 				array_delete(self.__array, _j, 2);
 			}
@@ -154,4 +178,5 @@ function PriorityArray() constructor {
 }
 
 #endregion
+
 
