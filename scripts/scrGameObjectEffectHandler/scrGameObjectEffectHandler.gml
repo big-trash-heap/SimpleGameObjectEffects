@@ -49,7 +49,7 @@ function GameObjectEffectHandler(_bind) constructor {
 			exit;
 		}
 		
-		var _effectInd = self.__priorityArray.fndIndBeg(_form.priority);
+		var _effectInd = self.__priorityArray.fndIndBegEq(_form.priority);
 		if (_effectInd == -1) {
 			
 			_appendNew(self.__priorityArray, _form);
