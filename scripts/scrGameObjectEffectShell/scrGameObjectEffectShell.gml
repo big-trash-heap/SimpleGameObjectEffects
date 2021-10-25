@@ -8,14 +8,12 @@ function GameObjectEffectShell(_effectForm) : __GameObjectEffectShell(_effectFor
 		
 	static __create = function(_bind) {
 		
-		var _f = self.form[$ "__create"];
-		if (_f != undefined) _f(_bind);
+		self.form[$ "__create"](_bind);
 	}
 	
 	static __free = function(_bind) {
 		
-		var _f = self.form[$ "__free"];
-		if (_f != undefined) _f(_bind);
+		self.form[$ "__free"](_bind);
 	}
 	
 	static __updata = function(_bind) {

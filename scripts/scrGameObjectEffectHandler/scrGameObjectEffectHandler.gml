@@ -43,7 +43,7 @@ function GameObjectEffectHandler(_bind) constructor {
 		}
 		
 		var _form = self.__map[? _nameEffectForm];
-		if (_form[$ "__updata"] == undefined) {
+		if (_form.__isUpdata == false) {
 			
 			_appendNew(self.__priorityArray, _form);
 			exit;
